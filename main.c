@@ -6,16 +6,19 @@
 /*   By: gacorrei <gacorrei@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:21:50 by gacorrei          #+#    #+#             */
-/*   Updated: 2022/12/05 13:19:53 by gacorrei         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:27:03 by gacorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
 int	main(void)
 {
 	int		fd;
 	int		fd2;
+	char	*temp;
 	char	*name;
 	char	*other;
 
@@ -24,14 +27,33 @@ int	main(void)
 	fd = open(name, O_RDONLY);
 	fd2 = open(other, O_RDONLY);
 	printf("\n");
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd2));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd2));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd2));
-	printf("%s", get_next_line(fd));
-	printf("%s", get_next_line(fd2));
+	temp = get_next_line(fd);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd2);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd2);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd2);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd2);
+	printf("%s", temp);
+	free(temp);
+	temp = get_next_line(fd2);
+	printf("%s", temp);
+	free(temp);
 	printf("\n");
 	close(fd);
 	close(fd2);
